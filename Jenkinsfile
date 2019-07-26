@@ -14,7 +14,7 @@ pipeline {
                 [key: 'repo'],
             ],
             causeString: 'Triggered on $ref',
-	    token: env.KAKA,
+	    token: 'kaka' + env.KAKA,
      
             printContributedVariables: true,
             printPostContent: true,
