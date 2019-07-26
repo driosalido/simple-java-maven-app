@@ -5,6 +5,22 @@ pipeline {
             args '-v /root/.m2:/root/.m2' 
         }
     }
+    triggers {
+    GenericTrigger(
+     genericVariables: [
+      [key: 'ref', value: '$.ref']
+     ],
+     
+     causeString: 'Triggered on $ref',
+     
+     printContributedVariables: true,
+     printPostContent: true,
+    
+     regexpFilterText: '$ref',
+     regexpFilterExpression: 'refs/heads/master'
+    )
+  }
+
     stages {
         stage('Build') { 
             steps {
