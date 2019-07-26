@@ -11,7 +11,7 @@ pipeline {
                 [key: 'ref', value: '$.ref']
             ],
             genericRequestVariables: [
-                [key: 'repo', regexpFilter: 'maven-test'],
+                [key: 'repo'],
             ],
             causeString: 'Triggered on $ref',
      
@@ -20,6 +20,8 @@ pipeline {
     
             regexpFilterText: '$ref',
             regexpFilterExpression: 'refs/heads/master'
+            regexpFilterText: '$repo'
+            regexpFilterExpression: 'maven-test'
     )
   }
 
