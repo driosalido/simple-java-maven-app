@@ -18,10 +18,9 @@ pipeline {
             printContributedVariables: true,
             printPostContent: true,
     
-            regexpFilterText: '$ref',
-            regexpFilterExpression: 'refs/heads/master'
-            regexpFilterText: '$repo'
-            regexpFilterExpression: 'maven-test'
+            regexpFilterText: '$ref|$repo',
+            regexpFilterExpression: 'refs/heads/master|maven-test'
+
     )
   }
 
