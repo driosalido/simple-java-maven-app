@@ -6,18 +6,20 @@ pipeline {
         }
     }
     triggers {
-    GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '$.ref']
-     ],
+      GenericTrigger(
+            genericVariables: [
+                [key: 'ref', value: '$.ref']
+            ],
+            genericRequestVariables: [
+                [key: 'repo', regexpFilter: 'maven-test'],
+            ],
+            causeString: 'Triggered on $ref',
      
-     causeString: 'Triggered on $ref',
-     
-     printContributedVariables: true,
-     printPostContent: true,
+            printContributedVariables: true,
+            printPostContent: true,
     
-     regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/master'
+            regexpFilterText: '$ref',
+            regexpFilterExpression: 'refs/heads/master'
     )
   }
 
